@@ -13,6 +13,11 @@ import axios from 'axios'
 axios.defaults.baseURL = ''
 
 
+router.beforeEach((to, from, next) => {
+  document.title = '进阶社'
+  next()
+})
+
 Vue.config.productionTip = false
 
 new Vue({

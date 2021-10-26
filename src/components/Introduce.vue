@@ -1,7 +1,7 @@
 <template>
 
         <el-row>
-            <el-col :xs="11" :sm=13 :md=14 :lg=24 class="introduce">
+            <el-col :span="24" class="introduce">
                 <el-descriptions title="简介" :column="1">
                     <el-descriptions-item label="头像">
                         <el-avatar shape="square" :size="40" fit="fill" src="https://www.85nc.com.cn/assets/images/logo.png"></el-avatar>

@@ -14,7 +14,7 @@
                                     <div class="over-elli title"><strong :title="article.art_title">{{article.art_title}}</strong></div>
                                     <div class="over-elli description">{{article.art_description}}</div>
                                     <!-- <div class="bottom clearfix"> -->
-                                        <el-button size="mini" icon="el-icon-view" style="margin: 10px auto; float: right">阅读</el-button>
+                                        <el-button size="mini" icon="el-icon-view" style="margin: 10px auto; float: right" @click="articleDetail(article.art_id)">阅读</el-button>
                                     <!-- </div> -->
                                 </div>
                                 </el-card>  
@@ -71,6 +71,9 @@ export default {
             .catch(err => {
                 console.log(err)
             })
+        },
+        articleDetail(articleId){
+            this.$router.push({name:'Article',params:{articleId:articleId}})
         }
     }
 }

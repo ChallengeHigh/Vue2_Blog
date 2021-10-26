@@ -2,7 +2,7 @@
     <el-container>
         <el-main>
             <el-row>
-                <el-col :span="6" :offset="9">
+                <el-col  :xs="{span:22,offset:1}" :sm="{span:18,offset:3}" :md="{span:14,offset:6}" :lg="{span:6,offset:9}">
                     <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
                         <el-form-item label="" prop="username">
                             <el-input type="text" v-model="ruleForm.username" placeholder="请输入用户名" prefix-icon="el-icon-user" autocomplete="off"></el-input>

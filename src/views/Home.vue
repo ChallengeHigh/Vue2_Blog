@@ -2,7 +2,7 @@
   <el-container>
         <el-main>
             <el-row :gutter=20>
-                <el-col :xs=24 :sm=24 :md=18 :lg="{span:15,offset:2}" >
+                <el-col :xs="{span:24,offset:0}" :sm="{span:24,offset:0}" :md="{span:18,offset:0}" :lg="{span:15,offset:2}" >
                     <el-row>
                         <div class="carousel-block">
                             <el-carousel trigger="click">
@@ -14,7 +14,7 @@
                     </el-row>
                     <div class="article-list-box">
                         <el-row :gutter=5>
-                            <el-col :xs=12 :sm=8 :md=6 :lg=6 class="article-list" v-for="article in articleList" :key="article.art_id">
+                            <el-col :xs=12 :sm=8 :md=8 :lg=6 class="article-list" v-for="article in articleList" :key="article.art_id">
                                 <el-card :body-style="{ padding: '5px' }" shadow="hover">
                                 <img :src="'https://www.85nc.com.cn/'+article.art_thumb" class="image">
                                 <div class="card-content">
@@ -45,13 +45,9 @@
                                 </div>
                             </el-col>
                         </el-row>
-
-                        
                     </div>
-                    
-                    
                 </el-col>
-                <el-col :xs=6 :sm=6 :md=6 :lg="{span:5,offset:0}"  class="hidden-sm-and-down">
+                <el-col :span="5" :sm="{span:6,offset:0}" :md="{span:6,offset:0}" :lg="{span:5,offset:0}"  class="hidden-sm-and-down">
                     <Introduce/>
                 </el-col>
             </el-row>
@@ -64,6 +60,7 @@
 // @ is an alias to /src
 import Introduce from '@/components/Introduce.vue'
 import axios from 'axios'
+
 export default {
   data () {
     return {
@@ -81,6 +78,12 @@ export default {
   components: {
     Introduce
   },
+//   beforeRouteEnter(to, from, next){
+//         console.log(localStorage.getItem('username'))
+//         store.$store.commit('user',localStorage.getItem('username'))
+//         console.log(store.state.username)
+//         next()
+//     },
   mounted () {
     this.getCarousel(),
     this.getArticleList()
@@ -94,6 +97,7 @@ export default {
           this.carouselList = Response.data
       })
     },
+    
     getArticleList () {
         axios
         .get('/articles/getList?page=' + this.pagenum + '&size=' + this.pagesize)
