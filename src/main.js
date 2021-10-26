@@ -10,8 +10,8 @@ Vue.use(ElementUI)
 
 import axios from 'axios'
 // 配置axios基本请求路径
-// axios.defaults.baseURL = 'https://api.aixue21.com'
-axios.defaults.baseURL = 'http://local.api.aixue21.com'
+axios.defaults.baseURL = ''
+
 
 Vue.config.productionTip = false
 
